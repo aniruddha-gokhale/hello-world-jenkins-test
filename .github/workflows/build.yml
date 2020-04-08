@@ -36,4 +36,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: my-build
-        path: hello-build
+        path: hello-world-jenkins-test/src
