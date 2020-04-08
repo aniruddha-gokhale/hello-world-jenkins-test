@@ -35,6 +35,6 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
-        name: $GITHUB_SHA.out
+        name: ${{ secrets.GITHUB_SHA }}-out
         # Directory containing files to upload
         path: src/out
