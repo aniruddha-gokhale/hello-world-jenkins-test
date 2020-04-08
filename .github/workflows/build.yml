@@ -32,3 +32,8 @@ jobs:
         cd src
         javac Hello.java
         java Hello
+        
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-build
+        path: hello-build
