@@ -41,6 +41,6 @@ jobs:
           BUILD: "100"
       with:
         # Artifact name
-        name: ${VERSION}-$GITHUB_SHA_SHORT-${BUILD}
+        name: ${{ env.VERSION }}-${{ env.GITHUB_SHA_SHORT }}-${{ env.BUILD }}
         # Directory containing files to upload
         path: src/out
