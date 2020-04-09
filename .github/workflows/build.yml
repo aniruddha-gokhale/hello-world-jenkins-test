@@ -33,8 +33,11 @@ jobs:
     
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
+      env:
+          VERSION: "v20.04"
+          BUILD: "100"
       with:
         # Artifact name
-        name: ${{ github.sha }}.out
+        name: ${VERSION}-${{ github.sha[0:12] }}-${BUILD}
         # Directory containing files to upload
         path: src/out
