@@ -44,4 +44,4 @@ jobs:
         # Artifact name
         name: ${{ env.VERSION }}-${{ env.GITHUB_SHA_SHORT }}-${{ env.BUILD }}
         # Directory containing files to upload
-        path: ${{ github.workspace }}/hello-world-jenkins-test/hello-world-jenkins-test/src
+        path: /home/runner/work
