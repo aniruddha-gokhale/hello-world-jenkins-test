@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build-upload:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,14 +33,10 @@ jobs:
     
     - name: Set env
       run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-12)
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      env:
-          VERSION: "v20.04"
-          BUILD: "100"
+
+    - uses: actions/download-artifact@v1
       with:
-        # Artifact name
-        name: ${{ env.VERSION }}-${{ env.GITHUB_SHA_SHORT }}-${{ env.BUILD }}
-        # Directory containing files to upload
+        name: my-artifact
         path: src/out
+
+    - run: ls src/out
