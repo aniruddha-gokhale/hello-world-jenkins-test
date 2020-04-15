@@ -27,12 +27,13 @@ jobs:
       run: |
         mkdir -p /home/runner/work/dist
         echo ${{ github.workspace }}
+        cp -r out.zip /home/runner/work/dist
         cd src
         mkdir out
         javac Hello.java -d out/
         cd out
         java Hello
-        cp -r Hello.class /home/runner/work/dist
+        
     
     - name: Set env
       run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-12)
@@ -46,4 +47,4 @@ jobs:
         # Artifact name
         name: ${{ env.VERSION }}-${{ env.GITHUB_SHA_SHORT }}-${{ env.BUILD }}
         # Directory containing files to upload
-        path: /home/runner/work/dist
+        path: /home/runner/work/dist/out.zip
